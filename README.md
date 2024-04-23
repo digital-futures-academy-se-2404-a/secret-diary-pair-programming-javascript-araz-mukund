@@ -15,7 +15,7 @@ DFCorp is a company that makes a secret diary.  The diary has a lock and can onl
 - From the Problem Statement above, create User Stories to describe the required functionality of the Secret Diary
 - With these User Stories, create a Kanban board to track your progress through the project
 - From the User Stories, identify the Objects and Messages that will make up the system and generate Domain Models
-  - Ensure that you are following the *Single Responsibility Principle* for each block of code
+- Ensure that you are following the *Single Responsibility Principle* for each block of code
 - Test-Drive the creation of the prototype based on your User Stories
 
 ## Notes
