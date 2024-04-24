@@ -1,6 +1,7 @@
 class Diary {
   #pin;
   #isLocked = true;
+  #entries = []
 
   constructor(pin) {
     this.#pin = pin;
@@ -12,6 +13,17 @@ class Diary {
     }
   }
 
+  getEntries() {
+    const myEntries = [...this.#entries]
+    return myEntries
+               }
+
+
+    addEntry(entry) {
+      this.#entries.push(entry)
+                    }
+  
+  
   getIsLocked() {
     if (this.#isLocked === true) {
       return true;

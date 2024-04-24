@@ -1,45 +1,57 @@
 import Diary from "../src/Diary.js";
 
+
 describe("Secret Diary Tests", () => {
   describe("Unlock diary with pin", () => {
     it("should set the isLocked property to false if the entered PIN matches the value of the pin property", () => {
       // Arrange
-      let pin = 8976;
-      let myDiary = new Diary(pin);
+      const pin = 8976;
+      const myDiary = new Diary(pin);
       // Act
       myDiary.enterPin(pin);
-      let isLocked = myDiary.getIsLocked();
+      const isLocked = myDiary.getIsLocked();
       // Assert
-      expect(isLocked).toBeFalse();
-      // assertTrue(testWallet instanceof Wallet);
+      expect(isLocked).toBeFalsy();
     });
-  });
-  describe("Unlock diary with pin", () => {
-    it("should set the isLocked property to false if the entered PIN matches the value of the pin property", () => {
+
+    it("should keep the isLocked property true if the entered PIN doesn't match the value of the pin property", () => {
       // Arrange
-      let pin = 8976;
-      let wrongPin = 1234;
-      let myDiary = new Diary(pin);
+      const correctPin = 8976;
+      const wrongPin = 1234;
+      const myDiary = new Diary(correctPin);
       // Act
       myDiary.enterPin(wrongPin);
-      let isLocked = myDiary.getIsLocked();
+      const isLocked = myDiary.getIsLocked();
       // Assert
-      expect(isLocked).toBeTrue();
-      // assertTrue(testWallet instanceof Wallet);
+      expect(isLocked).toBeTruthy();
     });
   });
-  describe("Unlock diary with pin", () => {
-    it("should allow ", () => {
+
+  describe("Add entries to unlocked diary", () => {
+    it("should add a new entry to the diary when it's unlocked", () => {
       // Arrange
-      let pin = 8976;
-      let myDiary = new Diary(pin);
+      const pin = 8976;
+      const myDiary = new Diary(pin);
       // Act
-			myDiary.enterPin(pin);
-			myDiary.addEntry("Entry 1")
-			let actual = myDiary.getEntries[0]
+      myDiary.enterPin(pin);
+      myDiary.addEntry("Entry 1");
+      const actual = myDiary.getEntries()[0];
       // Assert
       expect(actual).toBe("Entry 1");
-      // assertTrue(testWallet instanceof Wallet);
+    });
+
+    it("should show all entries in the diary", () => {
+      // Arrange
+      const pin = 8976;
+      const myDiary = new Diary(pin);
+      // Act
+      myDiary.enterPin(pin);
+      myDiary.addEntry("Entry 1");
+      myDiary.addEntry("Entry 2");
+      myDiary.addEntry("Entry 3");
+      const actual = myDiary.getEntries().join(", ");
+      // Assert
+      expect(actual).toBe("Entry 1, Entry 2, Entry 3");
     });
   });
 });
